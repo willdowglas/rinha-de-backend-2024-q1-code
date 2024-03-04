@@ -8,6 +8,10 @@ gem "bootsnap", require: false
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 
+group :development do
+  gem 'annotate'
+end
+
 group :development, :test do
   gem 'factory_bot', '~> 6.4.0'
   gem 'rspec-rails', '~> 6.1.0'
