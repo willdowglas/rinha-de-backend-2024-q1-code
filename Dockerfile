@@ -15,7 +15,6 @@ COPY . .
 RUN addgroup -S 1000 && adduser -S 1000 -G 1000
 USER 1000:1000
 
-ENTRYPOINT [ "./bin/docker-entrypoint" ]
-
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
