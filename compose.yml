@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    command: rails server -b 0.0.0.0
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16.2
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./tmp/db-data:/var/lib/postgresql/data/
